@@ -6,23 +6,28 @@ import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
-import { NotaPage } from '../pages/nota/nota';
+import { NewNotePage } from '../pages/new-note/new-note';
+import { NoteCardComponent } from '../components/note-card/note-card';
+
+import { IonicStorageModule } from '@ionic/storage';
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
-    NotaPage
+    NewNotePage,
+    NoteCardComponent
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
     HomePage,
-    NotaPage
+    NewNotePage
   ],
   providers: [
     StatusBar,

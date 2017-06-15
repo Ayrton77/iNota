@@ -1,22 +1,14 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>
-      iNota
-      <ion-icon float-right name="md-add-circle" (click)="onClick()"></ion-icon>
-    </ion-title>
-  </ion-navbar>
+	<ion-navbar>
+		<ion-title>
+			iNota
+			<ion-icon float-right name="md-add-circle" (click)="goToNewNote()"></ion-icon>
+		</ion-title>
+	</ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  	<ion-card>
 
-	  <ion-card-header>
-	    Nota 1
-	  </ion-card-header>
+	<note-card *ngFor="let note of notes" [note] = "note"></note-card>
 
-	  <ion-card-content>
-	   Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos, maiores. Totam quos et porro voluptatibus accusantium eos libero illo possimus laborum, iste error, ipsa optio? Voluptates earum velit molestias repellendus?
-	  </ion-card-content>
-
-	</ion-card>
 </ion-content>

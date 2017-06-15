@@ -1,19 +1,33 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import { NotaPage } from '../nota/nota';
+import { NewNotePage } from '../new-note/new-note';
+
+import { Note } from '../../models/note';
+
+import { Storage } from '@ionic/storage';
 
 @Component({
-  selector: 'page-home',
-  templateUrl: 'home.html'
+	selector: 'page-home',
+	templateUrl: 'home.html'
 })
 export class HomePage {
 
-  constructor(public navCtrl: NavController) {
+	notes:Note[] = [];
 
-  }
+	constructor(public navCtrl: NavController, private storage: Storage) {
+	}
 
-  onClick(){
-  	this.navCtrl.push(NotaPage);
-  }
+	ionViewDidLoad() {
+		this.storage.get('notes').then((val) => {
+			if( val != null && val != undefined )
+			{
+				this.notes = val;
+			}
+		});
+	}
+
+	goToNewNote() {
+		this.navCtrl.push(NewNotePage);
+	}
 
 }
