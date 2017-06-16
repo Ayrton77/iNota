@@ -3,7 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 import { Storage } from '@ionic/storage';
 
-import { Note } from './note';
+import { Note } from '../../models/note';
 
 /**
 * Generated class for the NotaPage page.
@@ -43,7 +43,5 @@ export class NotaPage {
 		this.storage.set('titulo', this.tituloNota);
 		this.storage.set('contenido', this.contenidoNota);
 		this.storage.set('nota', [this.tituloNota, this.contenidoNota]);
-
-		
 	}	
 }
