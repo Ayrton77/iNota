@@ -6,16 +6,17 @@ import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
-import { NewNotePage } from '../pages/new-note/new-note';
+import { NoteFormPage } from '../pages/note-form/note-form';
 import { NoteCardComponent } from '../components/note-card/note-card';
 
 import { IonicStorageModule } from '@ionic/storage';
+import { NoteProvider } from '../providers/note/note';
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
-    NewNotePage,
+    NoteFormPage,
     NoteCardComponent
   ],
   imports: [
@@ -27,12 +28,13 @@ import { IonicStorageModule } from '@ionic/storage';
   entryComponents: [
     MyApp,
     HomePage,
-    NewNotePage
+    NoteFormPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    NoteProvider
   ]
 })
 export class AppModule {}

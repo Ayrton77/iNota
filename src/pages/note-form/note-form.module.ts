@@ -1,16 +1,16 @@
 import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
-import { NotaPage } from './nota';
+import { NoteFormPage } from './note-form';
 
 @NgModule({
   declarations: [
-    NotaPage,
+    NoteFormPage,
   ],
   imports: [
-    IonicPageModule.forChild(NotaPage),
+    IonicPageModule.forChild(NoteFormPage),
   ],
   exports: [
-    NotaPage
+    NoteFormPage
   ]
 })
-export class NotaPageModule {}
+export class NoteFormPageModule {}

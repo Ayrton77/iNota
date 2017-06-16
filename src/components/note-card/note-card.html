@@ -7,8 +7,14 @@
 
 	<ion-card-content>
 		{{ note.text }}
-		<button (click)="editarNota( note.id )" ion-button small block color="secondary">Editar {{note.id}}</button>
-		<button (click)="borrarNota( note.id )" ion-button small block color="danger">Borrar {{note.id}}</button>
+
+		<ion-row no-padding>
+			<ion-col></ion-col>
+			<ion-col text-right>
+				<button (click)="editarNota( note.id )" ion-button clear small color="primary">Editar</button>
+			</ion-col>
+		</ion-row>
+
 	</ion-card-content>
 
 </ion-card>
