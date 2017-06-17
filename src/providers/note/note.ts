@@ -13,7 +13,7 @@ import { Storage } from '@ionic/storage';
 export class NoteProvider {
 
 	notes: Note[] = [];
-	note: Note = {id : 0, title : "", text : ""};
+	note: Note = {id : 0, image : "", title : "", text : ""};
 
 	constructor(private storage: Storage) {
 	}
@@ -26,7 +26,7 @@ export class NoteProvider {
 				higherId = this.notes[i].id;
 			}
 		}
-		this.note = {id : (higherId + 1), title : "", text : ""};
+		this.note = {id : (higherId + 1), image : "", title : "", text : ""};
 		return this.note;
 	}
 

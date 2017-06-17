@@ -2,8 +2,6 @@ import { Component, Input } from '@angular/core';
 import { NavController, NavParams  } from 'ionic-angular';
 import { NoteFormPage } from '../../pages/note-form/note-form';
 
-import { HomePage } from '../../pages/home/home';
-
 import { Note } from '../../models/note';
 import { NoteProvider } from '../../providers/note/note';
 

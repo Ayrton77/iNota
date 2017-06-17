@@ -8,6 +8,7 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { NoteFormPage } from '../pages/note-form/note-form';
 import { NoteCardComponent } from '../components/note-card/note-card';
+import { Camera } from '@ionic-native/camera';
 
 import { IonicStorageModule } from '@ionic/storage';
 import { NoteProvider } from '../providers/note/note';
@@ -33,6 +34,7 @@ import { NoteProvider } from '../providers/note/note';
   providers: [
     StatusBar,
     SplashScreen,
+    Camera,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     NoteProvider
   ]
