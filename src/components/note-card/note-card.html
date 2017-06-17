@@ -1,12 +1,17 @@
 <!-- Generated template for the NoteCardComponent component -->
 <ion-card>
 
-	<ion-card-header>
-		{{ note.title }}
-	</ion-card-header>
+	<img [src]="note.image" *ngIf="note.image" />
 
 	<ion-card-content>
-		{{ note.text }}
+
+		<ion-card-title>
+			{{ note.title }}
+		</ion-card-title>
+
+		<p>
+			{{ note.text }}
+		</p>
 
 		<ion-row no-padding>
 			<ion-col></ion-col>

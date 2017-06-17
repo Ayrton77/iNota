@@ -1,6 +1,7 @@
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController, ToastController } from 'ionic-angular';
 import { HomePage } from '../home/home';
+import { Camera } from '@ionic-native/camera';
 
 import { Note } from '../../models/note';
 import { NoteProvider } from '../../providers/note/note';
@@ -15,6 +16,16 @@ import { NoteProvider } from '../../providers/note/note';
 @Component({
   selector: 'page-note-form',
   templateUrl: 'note-form.html',
+  styles : [`
+  	.image-btn {
+	    border: 1px dashed #000;
+	    background: #f1f1f1;
+	    width: 100%;
+	    height: 100px;
+	    border-radius: 5px;
+	    margin-bottom: 15px;
+	}
+  `]
 })
 export class NoteFormPage {
 
@@ -22,8 +33,8 @@ export class NoteFormPage {
 
 	notes:Note[] = [];
 	
-	note: Note = {id : 0, title : "", text : ""};
-	
+	note: Note = {id : 0, image : "", title : "", text : ""};
+
 	higherId = 0;
 	id = 0;
 
@@ -33,7 +44,8 @@ export class NoteFormPage {
 				 public navParams: NavParams,
 				 private NoteProvider: NoteProvider,
 				 public alertCtrl: AlertController,
-				 public toastCtrl: ToastController ) { }
+				 public toastCtrl: ToastController,
+				 private camera: Camera ) { }
 
 	ionViewWillEnter() {
 		console.log("new note");
@@ -114,6 +126,29 @@ export class NoteFormPage {
 
 		this.NoteProvider.destroy( this.note.id );
 		this.navCtrl.push(HomePage);
+	}
+
+
+	takePicture() {
+
+		this.camera.getPicture({
+			quality: 100,
+			destinationType: this.camera.DestinationType.DATA_URL,
+			targetWidth: 1024,
+			targetHeight: 768
+		}).then((imageData) => {
+
+			this.note.image = "data:image/jpeg;base64," + imageData;
+
+		}, (err) => {
+			let toast = this.toastCtrl.create({
+				message: 'Ocurrió un error al capturar la foto',
+				duration: 3000,
+				position: 'top'
+			});
+			toast.present();
+		});
+
 	}
 
 
